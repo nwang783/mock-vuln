@@ -1,0 +1,19 @@
+<% layout('layout') -%>
+<section>
+  <h1>New</h1>
+  <form method="post" action="<%= action %>">
+    <label>Title <input name="title" value="<%= item.title %>" /></label>
+    <label>Content</label>
+    <textarea name="markdown" rows="12"><%= item.markdown %></textarea>
+    <div class="actions">
+      <button type="submit">Publish</button>
+    </div>
+  </form>
+  <form method="post" action="/articles/preview">
+    <input type="hidden" name="title" value="<%= item.title %>" />
+    <textarea name="markdown" rows="6"><%= item.markdown %></textarea>
+    <div class="actions">
+      <button type="submit">Preview</button>
+    </div>
+  </form>
+</section>
