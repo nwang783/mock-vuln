@@ -1,0 +1,12 @@
+<% layout('layout') -%>
+<section class="list">
+  <h1>Articles</h1>
+  <ul>
+    <% for (const p of items) { %>
+      <li>
+        <a href="/articles/<%= p.id %>"><%= p.title %></a>
+        <span class="meta"><%= p.when %> by <%= p.author %></span>
+      </li>
+    <% } %>
+  </ul>
+</section>

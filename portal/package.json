@@ -1,0 +1,17 @@
+{
+  "name": "portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "marked": "^12.0.2",
+    "morgan": "^1.10.0",
+    "sanitize-html": "^2.12.1"
+  }
+}
