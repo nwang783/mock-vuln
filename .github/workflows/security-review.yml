@@ -1,0 +1,20 @@
+name: Security Review
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call security reviewer
+        run: |
+          curl -sS -X POST "${{ secrets.PR_REVIEW_URL }}" \
+            -H "Authorization: Bearer ${{ secrets.AISECBOT_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "owner": "${{ github.repository_owner }}",
+              "repo": "${{ github.event.repository.name }}",
+              "pr_number": ${{ github.event.pull_request.number }},
+              "github_token": "${{ secrets.GITHUB_TOKEN }}"
+            }'
